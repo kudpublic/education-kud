@@ -11,6 +11,7 @@ public class ValidAnagramTest {
 		ValidAnagram s = new ValidAnagram();
 		assertCases(s::isAnagramSolveBySort);
 		assertCases(s::isAnagramSolveByMap);
+		assertCases(s::isAnagramSolveByArray);
 	}
 
 	private void assertCases(IsAnagramFunction f) {

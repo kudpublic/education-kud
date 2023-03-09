@@ -34,6 +34,26 @@ import java.util.stream.Collectors;
 
 public class ValidAnagram {
 
+	public boolean isAnagramSolveByArray(String s, String t) {
+		if (s.length() != t.length()) {
+			return false;
+		}
+
+		int[] counter = new int[26];
+
+		for (int i = 0; i < s.length(); i++) {
+			counter[s.charAt(i) - 'a']++;
+			counter[t.charAt(i) - 'a']--;
+		}
+
+		for (int n : counter) {
+			if (n > 0) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	public boolean isAnagramSolveBySort(String s, String t) {
 		return sort(s).equals(sort(t));
 	}
@@ -41,14 +61,14 @@ public class ValidAnagram {
 	private String sort(String s) {
 		return s.chars().sorted().collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append).toString();
 	}
-	
+
 	public boolean isAnagramSolveByMap(String s, String t) {
 		if (s.length() != t.length()) {
-            return false;
-        }
+			return false;
+		}
 		Map<Character, Long> sStat = getStat(s);
 		Map<Character, Long> tStat = getStat(t);
-		
+
 		for (Character key : sStat.keySet()) {
 			if (!sStat.get(key).equals(tStat.get(key))) {
 				return false;
