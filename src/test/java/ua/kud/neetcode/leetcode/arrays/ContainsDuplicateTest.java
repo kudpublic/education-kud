@@ -11,10 +11,12 @@ public class ContainsDuplicateTest {
 		ContainsDuplicate s = new ContainsDuplicate();
 		assertCases(s::containsDuplicateSolveBySort);
 		assertCases(s::containsDuplicateSolveByMap);
+		assertCases(s::containsDuplicateSolveByBruteForce);
 	}
 
 	private void assertCases(ContainsDuplicateFunction func) {
 		assertTrue(!func.containsDuplicate(new int[] { 1, 2, 3, 4, 5 }));
+		assertTrue(func.containsDuplicate(new int[] { 1, 2, 3, 4, 5, 5 }));
 		assertTrue(func.containsDuplicate(new int[] { 1, 2, 3, 4, 1 }));
 		assertTrue(func.containsDuplicate(new int[] { 1, 2, 3, 4, 4 }));
 		assertTrue(func.containsDuplicate(new int[] { 1, 2, 3, 3, 4 }));
