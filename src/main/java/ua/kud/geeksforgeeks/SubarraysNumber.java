@@ -1,7 +1,10 @@
 package ua.kud.geeksforgeeks;
 
+// https://www.geeksforgeeks.org/problems/number-of-subarrays-with-maximum-values-in-given-range5949/1
+// Number of subarrays with maximum values in given range
 public class SubarraysNumber {
 	public static void main(String[] args) {
+		System.out.println(countSubarrays(new int[] { 0, 0, 0, 0, 0 }, 5, 1, 10));
 		System.out.println(countSubarrays(new int[] { 0, 0, 0, 1, 2 }, 5, 1, 10));
 		System.out.println(countSubarrays(new int[] { 3, 4, 1, 5, 6, 11, 3 }, 7, 1, 10));
 
