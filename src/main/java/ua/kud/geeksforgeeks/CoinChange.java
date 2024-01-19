@@ -5,9 +5,7 @@ public class CoinChange {
 		System.out.println(countR(new int[] { 3, 1, 2 }, 3, 4));
 		System.out.println(countD(new int[] { 3, 1, 2 }, 3, 4));
 
-		System.out.println(countD(new int[] { 89, 62, 82, 87, 88, 53, 29, 16, 50, 95, 70, 32, 17, 57, 3, 61, 44, 91, 24,
-				72, 94, 34, 90, 52, 7, 65, 22, 15, 92, 38, 60, 63, 78, 64, 55, 36, 46, 85, 30, 11, 12, 33, 96, 45, 13,
-				4, 98, 40, 93, 83, 1, 42 }, 52, 432));
+		System.out.println(countD(new int[] { 89, 62, 82, 87, 88, 53, 29, 16, 50, 95, 70, 32, 17, 57, 3, 61, 44, 91, 24, 72, 94, 34, 90, 52, 7, 65, 22, 15, 92, 38, 60, 63, 78, 64, 55, 36, 46, 85, 30, 11, 12, 33, 96, 45, 13, 4, 98, 40, 93, 83, 1, 42 }, 52, 432));
 	}
 
 	/* countD - count dynamic */
@@ -17,14 +15,11 @@ public class CoinChange {
 		for (int i = 0; i < numberOfCoins; i++) {
 			int coin = coins[i];
 			for (int currentSum = 1; currentSum <= sum; currentSum++) {
-				if (coin <= currentSum) {
-					if (currentSum - coin >= 0) {
-						dp[currentSum] = dp[currentSum] + dp[currentSum - coin];
-					}
+				if (currentSum - coin >= 0) {
+					dp[currentSum] = dp[currentSum] + dp[currentSum - coin];
 				}
 			}
 		}
-
 		return dp[sum];
 	}
 
