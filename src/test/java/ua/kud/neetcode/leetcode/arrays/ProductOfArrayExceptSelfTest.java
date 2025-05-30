@@ -9,10 +9,13 @@ public class ProductOfArrayExceptSelfTest {
 	@Test
 	public void test() {
 		test(new ProductOfArrayExceptSelf()::productExceptSelf);
+		test(new ProductOfArrayExceptSelf()::productExceptSelfEasy);
 	}
 
 	private void test(ProductOfArrayExceptSelfFunction func) {
 		print(func.productExceptSelf(new int[] { 1, 2, 3, 4 }));
+		print(func.productExceptSelf(new int[] { 1, 2, 3, 4, 5, 6, 7, 8 }));
+		print(func.productExceptSelf(new int[] { 5, 3, 3, 4, 2, 1, 10 }));
 		print(func.productExceptSelf(new int[] { 0, 2, 3, 0 }));
 		print(func.productExceptSelf(new int[] { -1, 1, 0, -3, 3 }));
 

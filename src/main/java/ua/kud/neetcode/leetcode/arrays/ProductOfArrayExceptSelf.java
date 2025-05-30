@@ -47,24 +47,24 @@ package ua.kud.neetcode.leetcode.arrays;
  */
 public class ProductOfArrayExceptSelf {
 	public int[] productExceptSelf(int[] nums) {
-		
+
 		int[] res = new int[nums.length];
 
 		int prefixCursor = 1;
 		res[0] = 1;
 		int prefixBuffer = 1;
-		
+
 		int suffixCursor = nums.length - 2;
 		res[nums.length - 1] = 1;
 		int suffixBuffer = 1;
-		
+
 		int prefixCursorThreshold = nums.length / 2;
-		
+
 		int suffixCursorThreshold = prefixCursorThreshold;
 		if (nums.length % 2 != 0) {
 			suffixCursorThreshold = prefixCursorThreshold + 1;
 		}
-		
+
 		while (suffixCursor >= 0) {
 			int prefixProduct = prefixBuffer * nums[prefixCursor - 1];
 			if (prefixCursor > (nums.length - 1) / 2) {
@@ -74,7 +74,7 @@ public class ProductOfArrayExceptSelf {
 			}
 			prefixBuffer = prefixProduct;
 			prefixCursor++;
-			
+
 			int suffixProduct = suffixBuffer * nums[suffixCursor + 1];
 			if (suffixCursor < suffixCursorThreshold) {
 				res[suffixCursor] = res[suffixCursor] * suffixProduct;
@@ -84,7 +84,26 @@ public class ProductOfArrayExceptSelf {
 			suffixBuffer = suffixProduct;
 			suffixCursor--;
 		}
-		
+
+		return res;
+	}
+
+	public int[] productExceptSelfEasy(int[] nums) {
+		int[] res = new int[nums.length];
+
+		int product = nums[0];
+		for (int i = 1; i < nums.length; i++) {
+			res[i] = product;
+			product *= nums[i];
+		}
+
+		res[0] = 1;
+		product = nums[nums.length - 1];
+		for(int i = nums.length - 2; i >= 0; i--) {
+			res[i] *= product;
+			product *= nums[i];
+		}
+
 		return res;
 	}
 
