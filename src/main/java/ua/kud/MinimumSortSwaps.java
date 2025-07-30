@@ -3,6 +3,13 @@ package ua.kud;
 import java.util.Arrays;
 import java.util.Comparator;
 
+/**
+ * Coding Question: “Minimum Swaps to Sort an Array” Given an array of distinct
+ * elements, return the minimum number of swaps required to sort the array.
+ * 
+ * This is a graph cycle detection problem disguised as an array question.
+ * https://blog.stackademic.com/i-cracked-the-goldman-sachs-java-interview-heres-what-you-need-to-know-664da2073e1c
+ */
 public class MinimumSortSwaps {
 
 	public int calculateMinSwapsToSort(int[] input) {
